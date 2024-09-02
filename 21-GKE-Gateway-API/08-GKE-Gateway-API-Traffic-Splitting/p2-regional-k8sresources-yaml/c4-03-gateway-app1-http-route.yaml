@@ -1,0 +1,18 @@
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1
+metadata:
+  name: app1-route
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: mygateway1-regional
+    sectionName: https
+  rules:
+  - backendRefs:
+    - name: myapp1-service-v1
+      port: 80
+      weight: 50
+    - name: myapp1-service-v2
+      port: 80
+      weight: 50
+           

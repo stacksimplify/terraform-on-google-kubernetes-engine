@@ -1,0 +1,123 @@
+kubectl -n mydemo1ns describe pod myapp1-deployment-5895bd57b4-wmjw9
+Name:             myapp1-deployment-5895bd57b4-wmjw9
+Namespace:        mydemo1ns
+Priority:         0
+Service Account:  mydemo1sa
+Node:             gk3-hr-dev-gke-cluster-autopil-pool-2-5840b9ed-rhhp/10.128.0.49
+Start Time:       Mon, 05 Aug 2024 18:28:08 +0530
+Labels:           app=myapp1
+                  pod-template-hash=5895bd57b4
+Annotations:      autopilot.gke.io/resource-adjustment:
+                    {"input":{"initContainers":[{"requests":{"cpu":"250m","ephemeral-storage":"5Gi","memory":"256Mi"},"name":"gke-gcsfuse-sidecar"}],"containe...
+                  autopilot.gke.io/warden-version: 2.9.50
+                  gke-gcsfuse/volumes: true
+Status:           Running
+SeccompProfile:   RuntimeDefault
+IP:               10.1.0.68
+IPs:
+  IP:           10.1.0.68
+Controlled By:  ReplicaSet/myapp1-deployment-5895bd57b4
+Init Containers:
+  gke-gcsfuse-sidecar:
+    Container ID:    containerd://847a881ff6deab7deab89e6fbece1efdc3be2204ceb2efd0915402eb8d4e2f66
+    Image:           gke.gcr.io/gcs-fuse-csi-driver-sidecar-mounter:v1.4.2-gke.0@sha256:80c2a52aaa16ee7d9956a4e4afb7442893919300af84ae445ced32ac758c55ad
+    Image ID:        gke.gcr.io/gcs-fuse-csi-driver-sidecar-mounter@sha256:80c2a52aaa16ee7d9956a4e4afb7442893919300af84ae445ced32ac758c55ad
+    Port:            <none>
+    Host Port:       <none>
+    SeccompProfile:  RuntimeDefault
+    Args:
+      --v=5
+    State:          Running
+      Started:      Mon, 05 Aug 2024 18:28:43 +0530
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:                250m
+      ephemeral-storage:  5Gi
+      memory:             256Mi
+    Requests:
+      cpu:                250m
+      ephemeral-storage:  5Gi
+      memory:             256Mi
+    Environment:
+      NATIVE_SIDECAR:  TRUE
+    Mounts:
+      /gcsfuse-buffer from gke-gcsfuse-buffer (rw)
+      /gcsfuse-cache from gke-gcsfuse-cache (rw)
+      /gcsfuse-tmp from gke-gcsfuse-tmp (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-l75lf (ro)
+Containers:
+  myapp1-container:
+    Container ID:   containerd://5bdb2956de8db2d79ab2aace1b05e533b383102fdcc5c96044fa71cbbd7c0520
+    Image:          ghcr.io/stacksimplify/kubenginx:1.0.0
+    Image ID:       ghcr.io/stacksimplify/kubenginx@sha256:205961b09a80476af4c2379841bf6abec0022101a7e6c5585a88316f7115d17a
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 05 Aug 2024 18:28:50 +0530
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:                500m
+      ephemeral-storage:  1Gi
+      memory:             2Gi
+    Requests:
+      cpu:                500m
+      ephemeral-storage:  1Gi
+      memory:             2Gi
+    Environment:          <none>
+    Mounts:
+      /usr/share/nginx/html from gcs-fuse-csi-static (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-l75lf (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  gke-gcsfuse-tmp:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  gke-gcsfuse-buffer:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  gke-gcsfuse-cache:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  gcs-fuse-csi-static:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  gcs-fuse-csi-static-pvc
+    ReadOnly:   false
+  kube-api-access-l75lf:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Guaranteed
+Node-Selectors:              <none>
+Tolerations:                 kubernetes.io/arch=amd64:NoSchedule
+                             node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                   From                                   Message
+  ----     ------            ----                  ----                                   -------
+  Warning  FailedScheduling  8m42s                 gke.io/optimize-utilization-scheduler  0/1 nodes are available: 1 Insufficient cpu, 1 Insufficient memory. preemption: 0/1 nodes are available: 1 No preemption victims found for incoming pod.
+  Normal   TriggeredScaleUp  8m39s                 cluster-autoscaler                     pod triggered scale-up: [{https://www.googleapis.com/compute/v1/projects/gcplearn9/zones/us-central1-b/instanceGroups/gk3-hr-dev-gke-cluster-autopil-pool-2-5840b9ed-grp 0->1 (max: 1000)}]
+  Warning  FailedScheduling  7m51s                 gke.io/optimize-utilization-scheduler  0/2 nodes are available: 1 Insufficient cpu, 1 node(s) had untolerated taint {node.kubernetes.io/not-ready: }. preemption: 0/2 nodes are available: 1 No preemption victims found for incoming pod, 1 Preemption is not helpful for scheduling.
+  Normal   Scheduled         7m2s                  gke.io/optimize-utilization-scheduler  Successfully assigned mydemo1ns/myapp1-deployment-5895bd57b4-wmjw9 to gk3-hr-dev-gke-cluster-autopil-pool-2-5840b9ed-rhhp
+  Warning  FailedMount       6m46s (x6 over 7m1s)  kubelet                                MountVolume.MountDevice failed for volume "gcs-fuse-csi-pv" : kubernetes.io/csi: attacher.MountDevice failed to create newCsiDriverClient: driver name gcsfuse.csi.storage.gke.io not found in the list of registered CSI drivers
+  Normal   Pulling           6m28s                 kubelet                                Pulling image "gke.gcr.io/gcs-fuse-csi-driver-sidecar-mounter:v1.4.2-gke.0@sha256:80c2a52aaa16ee7d9956a4e4afb7442893919300af84ae445ced32ac758c55ad"
+  Normal   Pulled            6m28s                 kubelet                                Successfully pulled image "gke.gcr.io/gcs-fuse-csi-driver-sidecar-mounter:v1.4.2-gke.0@sha256:80c2a52aaa16ee7d9956a4e4afb7442893919300af84ae445ced32ac758c55ad" in 705ms (705ms including waiting)
+  Normal   Created           6m27s                 kubelet                                Created container gke-gcsfuse-sidecar
+  Normal   Started           6m27s                 kubelet                                Started container gke-gcsfuse-sidecar
+  Normal   Pulling           6m27s                 kubelet                                Pulling image "ghcr.io/stacksimplify/kubenginx:1.0.0"
+  Normal   Pulled            6m20s                 kubelet                                Successfully pulled image "ghcr.io/stacksimplify/kubenginx:1.0.0" in 6.533s (6.533s including waiting)
+  Normal   Created           6m20s                 kubelet                                Created container myapp1-container
+  Normal   Started           6m20s                 kubelet                                Started container myapp1-container
+Kalyans-Mac-mini:18-GKE-Cloud-Storage-FUSE-CSI kalyanreddy$ 

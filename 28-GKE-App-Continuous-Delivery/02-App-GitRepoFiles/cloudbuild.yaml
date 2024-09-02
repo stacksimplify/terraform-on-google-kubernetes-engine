@@ -1,0 +1,91 @@
+# [START cloudbuild - Docker Image Build]
+steps:
+# This step builds the container image.
+- name: 'gcr.io/cloud-builders/docker'
+  id: Build Docker Image
+  args:
+  - 'build'
+  - '-t'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/myapps-repository/myapp1:$SHORT_SHA'
+  - '.'
+
+# This step pushes the image to Artifact Registry
+# The PROJECT_ID and SHORT_SHA variables are automatically
+# replaced by Cloud Build.
+- name: 'gcr.io/cloud-builders/docker'
+  id: Push Docker Image
+  args:
+  - 'push'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/myapps-repository/myapp1:$SHORT_SHA'
+# [END cloudbuild - Docker Image Build]
+
+
+# [START cloudbuild-trigger-cd]
+# This step setups the SSH-Authentication base steps
+- name: 'gcr.io/cloud-builders/git'
+  id: Extract Private SSH key from GCP Secrets Manager
+  secretEnv: ['SSH_KEY']
+  entrypoint: 'bash'
+  args:
+  - -c
+  - |
+    echo "$$SSH_KEY"
+    echo "$$SSH_KEY" >> /root/.ssh/id_rsa
+    chmod 400 /root/.ssh/id_rsa
+    cp known_hosts.github /root/.ssh/known_hosts
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh    
+
+# This step clones the terraform-gcp-gke-k8s-devops repository
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Clone terraform-gcp-gke-k8s-devops repository
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+    git clone git@github.com:stacksimplify/terraform-gcp-gke-k8s-devops.git
+    cd terraform-gcp-gke-k8s-devops && \
+    git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+
+# This step generates the new manifest
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Generate Kubernetes manifest
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+     sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" main.tf.tpl | \
+     sed "s/COMMIT_SHA/${SHORT_SHA}/g" > terraform-gcp-gke-k8s-devops/modules/kubernetes_deployment/main.tf
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+# This step pushes the manifest back to terraform-gcp-gke-k8s-devops
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Push Kubernetes manifests to terraform-gcp-gke-k8s-devops repo
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+    set -x && \
+    cd terraform-gcp-gke-k8s-devops && \
+    git add modules/kubernetes_deployment/main.tf && \
+    git commit -m "Updating image us-central1-docker.pkg.dev/$PROJECT_ID/myapps-repository/myapp1:${SHORT_SHA}
+    Built from commit ${COMMIT_SHA} of repository terraform-gcp-gke-k8s-devops
+    Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
+    git push origin main
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+availableSecrets:
+  secretManager:
+  - versionName: projects/$PROJECT_ID/secrets/mygithub-ssh/versions/latest
+    env: 'SSH_KEY'
+
+# [END cloudbuild-trigger-cd]

@@ -1,0 +1,13 @@
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1
+metadata:
+  name: route-external-http
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: mygateway1-regional
+  rules:
+  - backendRefs:
+    - name: myapp1-service
+      port: 80
+      weight: 100

@@ -1,0 +1,19 @@
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1
+metadata:
+  name: app2-route
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: mygateway1-regional
+    sectionName: https
+  hostnames:
+  - "app2.stacksimplify.com"    
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /app2
+    backendRefs:
+    - name: myapp2-service
+      port: 80       

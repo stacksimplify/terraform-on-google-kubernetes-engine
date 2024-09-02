@@ -1,0 +1,22 @@
+kind: Gateway
+apiVersion: gateway.networking.k8s.io/v1
+metadata:
+  name: mygateway1-regional
+spec:
+  gatewayClassName: gke-l7-regional-external-managed
+  listeners:
+  - name: https
+    protocol: HTTPS
+    port: 443
+    tls:
+      mode: Terminate
+      certificateRefs:
+      - name: myssl-secret    
+  addresses:
+  - type: NamedAddress
+    value: my-regional-ip1
+
+
+## Documentation ##
+# https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GatewayTLSConfig
+# https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SecretObjectReference
