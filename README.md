@@ -154,7 +154,7 @@
 - [terraform-gcp-gke-infra-devops](https://github.com/stacksimplify/terraform-gcp-gke-infra-devops)
 - [terraform-gcp-gke-k8s-devops](https://github.com/stacksimplify/terraform-gcp-gke-k8s-devops)
 - [terraform-gcp-gke-app-devops](https://github.com/stacksimplify/terraform-gcp-gke-app-devops)
-- [Course Presentation](https://github.com/stacksimplify/terraform-on-google-cloud/course-presentation)
+- [Course Presentation](https://github.com/stacksimplify/terraform-on-google-kubernetes-engine/tree/main/course-presentation)
 - **Important Note:** Please go to these repositories and FORK these repositories and make use of them during the course.
 
 ## [Each of my courses come with](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
