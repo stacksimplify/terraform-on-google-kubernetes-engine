@@ -1,12 +1,12 @@
-# [GCP GKE Terraform on Google Kubernetes Engine DevOps SRE IaC - 40 Real-World Demos](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+# [GCP GKE Terraform on Google Kubernetes Engine DevOps SRE IaC - 40 Real-World Demos](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 
-[![Image](gcp-gke-terraform-1.png "GCP GKE Terraform on Google Kubernetes Engine DevOps SRE")](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+[![Image](gcp-gke-terraform-1.png "GCP GKE Terraform on Google Kubernetes Engine DevOps SRE")](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 
-## [Course Details](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
-- **Title:** [GCP GKE Terraform on Google Kubernetes Engine DevOps SRE IaC - 40 Real-World Demos](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+## [Course Details](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
+- **Title:** [GCP GKE Terraform on Google Kubernetes Engine DevOps SRE IaC - 40 Real-World Demos](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 - **Sub Title:** Master Terraform on GCP GKE: 40 Real-World Demos to become a DevOps SRE and IaC Expert
 
-## [Course Modules](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+## [Course Modules](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 1. **Demo-01:** Install CLI Tools: gcloud CLI, Terraform CLI, VSCode Editor
 2. **Demo-02:** Terraform Commands (init, validate, plan, apply and destroy)
 3. **Demo-03:** Terraform Language Basics
@@ -50,7 +50,7 @@
 28. **Demo-28:** GKE App: Implement Continuous Delivery using GitHub and Cloud Build
 
 
-## [Terraform Concepts covered](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+## [Terraform Concepts covered](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 1. Terraform Commands  
 2. Terraform Providers  
 3. Terraform Settings Block  
@@ -70,7 +70,7 @@
 17. Terraform Custom Modules Development  
 18. Terraform Functions  
 
-## [GCP Services](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+## [GCP Services](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 1. Google Compute Engine VM Instances  
 2. Google Compute Engine Health Checks  
 3. Google Compute Engine Persistent Disks  
@@ -93,7 +93,7 @@
 20. GCP Secrets Manager
 21. GCP Cloud Storage Buckets
 
-## [Kubernetes Concepts](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+## [Kubernetes Concepts](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 01. Google Kubernetes Engine - Standard Public Cluster
 02. Google Kubernetes Engine - Standard Private Cluster
 03. Google Kubernetes Engine - Autopilot Cluster
@@ -108,7 +108,7 @@
 12. Kubernetes Secrets
 13. Kubernetes Gateway API (Load Balancers - 13 Important Demos )
 
-## [What will students learn in your course?](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+## [What will students learn in your course?](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 1. You will learn Terraform basics with first 8 practical demos
 2. You will learn to automate GKE standard public cluster with terraform
 3. You will learn to automate GKE standard private clsuter with cluster autoscaler
@@ -139,17 +139,17 @@
 27. You will implement GKE Workload devops where we can deploy our dev applications to Dev GKE cluster and prod applications to prod GKE cluster using GitHub and Cloud Build (Pipelines)
 
 
-## [What are the requirements or prerequisites for taking your course?](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+## [What are the requirements or prerequisites for taking your course?](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 - You need to have basic knowledge of Google Cloud Platform and Kubernetes concepts
 - To create Google Cloud Account, you need a debit or credit card 
 - You don't need any prior knowledge of Terraform. We will start from the very basics of Terraform. The first 8 demos will focus on Terraform fundamentals.
 
-## [Who is this course for?](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+## [Who is this course for?](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 - This course is designed for students who are planning to automate Google Kubernetes Engine Infrastructure using Terraform
 - Students who planning to learn Terraform on Google Cloud Platform and Google Kubernetes Engine
 - Students who are planning to master DevOps, SRE (Site Reliability Engineerig) and IaC (Infrastructure as Code) concepts using Terraform, Google Cloud and Google Kubernetes Engine, Cloud Build and GitHub
 
-## [Github Repositories used for this course](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+## [Github Repositories used for this course](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 - [terraform-on-google-kubernetes-engine](https://github.com/stacksimplify/terraform-on-google-cloud)
 - [terraform-gcp-gke-infra-devops](https://github.com/stacksimplify/terraform-gcp-gke-infra-devops)
 - [terraform-gcp-gke-k8s-devops](https://github.com/stacksimplify/terraform-gcp-gke-k8s-devops)
@@ -157,7 +157,7 @@
 - [Course Presentation](https://github.com/stacksimplify/terraform-on-google-cloud/course-presentation)
 - **Important Note:** Please go to these repositories and FORK these repositories and make use of them during the course.
 
-## [Each of my courses come with](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+## [Each of my courses come with](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine)
 - Amazing Hands-on Step By Step Learning Experiences
 - Practical demos for each and every concept
 - Friendly Support in the Q&A section
