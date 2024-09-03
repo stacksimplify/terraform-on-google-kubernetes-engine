@@ -1,7 +1,6 @@
 # [GCP GKE Terraform on Google Kubernetes Engine DevOps SRE IaC - 40 Real-World Demos](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
 
-
-[![Image](gcp-gke-terraform-2.png "GCP GKE Terraform on Google Kubernetes Engine DevOps SRE")](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
+[![Image](gcp-gke-terraform-1.png "GCP GKE Terraform on Google Kubernetes Engine DevOps SRE")](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
 
 ## [Course Details](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
 - **Title:** [GCP GKE Terraform on Google Kubernetes Engine DevOps SRE IaC - 40 Real-World Demos](https://links.stacksimplify.com/gcp-gke-terraform-on-google-kubernetes-engine-devops-sre-iac)
